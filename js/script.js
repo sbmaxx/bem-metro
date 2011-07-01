@@ -14,6 +14,19 @@ function Line(start, end) {
     this.start = a;
     this.end = b;
 }
+Line.prototype = {
+    /*
+    **  A*start.x + B*start.y = 0,
+    **  A*end.x + B*end.y = 0
+    **
+    **  alpha = A/B, beta = C/B
+    */
+    equation: function() {
+        var beta = -1 * (start.y * end.x) / (end.x - start.x),
+            alpha = -1 * beta / end.x;
+    }
+};
+
 var App = {
     run: function() {
         for (var i = 1; i < 5; i++) {
